@@ -63,12 +63,41 @@ void InsertEnd()
         PTR->NEXT = New_Node;
     }
 }
+void deleteFront()
+{
+    struct node *PTR = START;
+    START = START->NEXT;
+    free(PTR);
+}
+void deleteEnd()
+{
+    struct node *PTR = START;
+    struct node *PRE = PTR;
+    while (PTR->NEXT != NULL)
+    {
+        PRE = PTR;
+        PTR = PTR->NEXT;
+    }
+    PRE->NEXT = NULL;
+    free(PTR);
+}
+void counter()
+{
+    struct node *PTR = START;
+    int count = 0;
+    while (PTR != NULL)
+    {
+        count++;
+        PTR = PTR->NEXT;
+    }
+    printf("Total nodes in Linklist : %d \n", count);
+}
 void main()
 {
     int selection;
     while (selection)
     {
-        printf("1. Create Element in Linklist \n2. Display Linklist \n3. Insert at Start of Linklist \n4. Insert at End of Linklist 0. Exit");
+        printf("\n\n1. Create Element in Linklist \n2. Display Linklist \n3. Insert at Start of Linklist \n4. Insert at End of Linklist \n5. Delete First Node \n6. Delete Last Node \n7. Count total nodes in Linklist \n0. Exit\n\n");
         scanf("%d", &selection);
         switch (selection)
         {
@@ -84,7 +113,15 @@ void main()
         case 4:
             InsertEnd();
             break;
-
+        case 5:
+            deleteFront();
+            break;
+        case 6:
+            deleteEnd();
+            break;
+        case 7:
+            counter();
+            break;
         default:
             printf("Invalid Entry");
             break;
