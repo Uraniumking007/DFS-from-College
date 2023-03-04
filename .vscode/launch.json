@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/urani/OneDrive/Documents/GitHub/DFS-from-College",
-      "program": "c:/Users/urani/OneDrive/Documents/GitHub/DFS-from-College/build/Debug/outDebug",
+      "cwd": "c:/Users/urani/OneDrive/Documents/GitHub/DFS-from-College/Practical-8",
+      "program": "c:/Users/urani/OneDrive/Documents/GitHub/DFS-from-College/Practical-8/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -5,6 +5,7 @@ struct node
     int INFO;
     struct node *NEXT;
 } *START = NULL;
+
 void create()
 {
     int data;
@@ -12,6 +13,8 @@ void create()
     printf("Enter Value\n");
     scanf("%d", &data);
     New_Node->INFO = data;
+    New_Node->NEXT = NULL;
+
     if (START == NULL)
     {
         START = New_Node;
@@ -24,7 +27,7 @@ void create()
             PTR = PTR->NEXT;
         }
         PTR->NEXT = New_Node;
-    } // printf("%p",START);
+    } // printf("%p", START);
 }
 void Display()
 {
@@ -95,7 +98,8 @@ void counter()
 void main()
 {
     int selection;
-    while (selection)
+    selection = 1;
+    while (selection != 0)
     {
         printf("\n\n1. Create Element in Linklist \n2. Display Linklist \n3. Insert at Start of Linklist \n4. Insert at End of Linklist \n5. Delete First Node \n6. Delete Last Node \n7. Count total nodes in Linklist \n0. Exit\n\n");
         scanf("%d", &selection);
