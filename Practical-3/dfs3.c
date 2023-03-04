@@ -1,105 +1,90 @@
 #include <stdio.h>
-#include <string.h>
-#include <strings.h>
 
-#define SIZE 6
-
+int S[10];
 int top = -1;
-char stack[SIZE];
-void push();
-void pop();
-void display();
-void peep();
-void reverse();
-char rev[SIZE];
+int N = 5;
 
-int main()
+void Push()
 {
-    int choice;
-    while (1)
+    int X;
+    if (top >= N - 1)
     {
-        printf("\nPerform operations on the stack:");
-        printf("\n1.Push the element\n2.Pop the element\n3.display\n4.End");
-        printf("\n\nEnter the choice: ");
-        scanf("%d", &choice);
+        printf("Stack Overflow\n");
+    }
+    else
+    {
+        top++;
+        printf("Enter Element:");
+        scanf("%d", &X);
+        S[top] = X;
+    }
+}
 
-        switch (choice)
+void Display()
+{
+    for (int i = 0; i <= top; i++)
+    {
+        printf("%d :- %d\n", i, S[i]);
+    }
+}
+
+int Pop()
+{
+    if (top == -1)
+    {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+
+    top -= 1;
+    return S[top + 1];
+}
+
+int Peep()
+{
+    if (top == -1)
+    {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    else
+        return S[top];
+}
+
+void main()
+{
+    Push();
+    int ch, V, P, m = 1;
+
+    while (m != 0)
+    {
+        printf("Enter your Choice:- \n 1)Push \n 2)Display \n 3)Pop \n 4)Peep\n");
+        scanf("%d", &ch);
+        switch (ch)
         {
         case 1:
-            push();
+            Push();
             break;
+
         case 2:
-            pop();
+            Display();
             break;
+
         case 3:
-            display();
+            V = Pop();
+            printf("Poped Element is %d\n", V);
             break;
-        // case 4:
-        //     exit(0);
+
         case 4:
-            reverse();
+            P = Peep();
+            printf("Top most Element is %d\n", P);
             break;
 
         default:
-            printf("\nInvalid choice!!");
+            printf("Invalid Choice\n");
+            break;
         }
+        printf("Enter 0 to stop and press any number to continue\n");
+        scanf("%d", &m);
     }
-}
-
-void push()
-{
-    int x;
-
-    if (top == SIZE - 1)
-    {
-        printf("\nOverflow!!");
-    }
-    else
-    {
-        printf("\nEnter the string to be added onto the stack: ");
-        scanf("%d", &x);
-        gets(stack);
-        top = strlen(stack);
-    }
-}
-
-void pop()
-{
-    if (top == -1)
-    {
-        printf("\nUnderflow!!");
-    }
-    else
-    {
-        printf("\nPopped element: %d", stack[top]);
-        top = top - 1;
-    }
-}
-
-void display()
-{
-    if (top == -1)
-    {
-        printf("\nUnderflow!!");
-    }
-    else
-    {
-        printf("\nElements present in the stack: \n");
-        for (int i = top; i >= 0; --i)
-            printf("%c\n", stack[i]);
-    }
-}
-void peep()
-{
-    printf("%d", stack[top]);
-}
-void reverse()
-{
-    for (int i = 0; top != -1; i++)
-    {
-        rev[i] = stack[i];
-    }
-
-    puts(stack);
-    puts(rev);
 }
