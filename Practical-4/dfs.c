@@ -1,6 +1,6 @@
-$include<stdio.h>
+#include <stdio.h>
 
-    char S[10];
+char S[10];
 int top = -1;
 int N = 10;
 
